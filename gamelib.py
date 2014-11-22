@@ -20,7 +20,7 @@ class SimpleGame(object):
 
     def __handle_events(self):
         for event in pygame.event.get():
-            if event.type == QUIT:
+            if event.type == pygame.QUIT:
                 self.terminate()
 
     def terminate(self):
@@ -34,16 +34,10 @@ class SimpleGame(object):
             self.update()
 
             self.surface.fill(self.background_color)
-            self.render(self.surface)
+            self.render()
             pygame.display.update()
 
             self.clock.tick(self.fps)
-
-    def is_key_pressed(self, key):
-        keys_pressed = pygame.key.get_pressed()
-        if key < 0 or key >= len(keys_pressed):
-            return False
-        return (keys_pressed[key])
 
     def init(self):
         self.__game_init()
@@ -51,5 +45,5 @@ class SimpleGame(object):
     def update(self):
         pass
 
-    def render(self, surface):
+    def render(self):
         pass

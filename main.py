@@ -10,7 +10,7 @@ class MirrorMan(gamelib.SimpleGame):
 		super(MirrorMan, self).__init__('Mirror Man', MirrorMan.PURPLE)
 
 	def init(self):
-		super(MirrorMan, self)
+		super(MirrorMan, self).init()
 
 	def update(self):
 		pass
