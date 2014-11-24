@@ -2,21 +2,35 @@ import pygame
 from pygame.locals import *
 
 import gamelib
+from player import Player
+from car import Car
 
 class MirrorMan(gamelib.SimpleGame):
 	PURPLE = pygame.Color('purple')
 
 	def __init__(self):
 		super(MirrorMan, self).__init__('Mirror Man', MirrorMan.PURPLE)
+		self.player = Player((380, 10))
+		self.car = Car((0, 100))
 
 	def init(self):
 		super(MirrorMan, self).init()
 
 	def update(self):
-		pass
+		self.car.move()
 
-	def render(self):
-		pass
+		if self.is_key_pressed(K_UP):
+			self.player.move_up()
+		elif self.is_key_pressed(K_DOWN):
+			self.player.move_down()
+		elif self.is_key_pressed(K_LEFT):
+			self.player.move_left()
+		elif self.is_key_pressed(K_RIGHT):
+			self.player.move_right()
+
+	def render(self, surface):
+		self.player.render(surface)
+		self.car.render(surface)
 
 def main():
 	game = MirrorMan()

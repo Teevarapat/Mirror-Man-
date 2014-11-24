@@ -3,7 +3,7 @@ from pygame.locals import *
 
 class SimpleGame(object):
 
-    def __init__(self, title, background_color, window_size=(800,600), fps=60):
+    def __init__(self, title, background_color, window_size=(800,600), fps=60): # 800 is width of screen
         self.title = title
         self.window_size = window_size
         self.fps = fps
@@ -34,10 +34,16 @@ class SimpleGame(object):
             self.update()
 
             self.surface.fill(self.background_color)
-            self.render()
+            self.render(self.surface)
             pygame.display.update()
 
             self.clock.tick(self.fps)
+
+    def is_key_pressed(self, key):
+        keys_pressed = pygame.key.get_pressed()
+        if key < 0 or key >= len(keys_pressed):
+            return False
+        return (keys_pressed[key])
 
     def init(self):
         self.__game_init()
