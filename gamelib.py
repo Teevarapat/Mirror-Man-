@@ -3,7 +3,7 @@ from pygame.locals import *
 
 class SimpleGame(object):
 
-    def __init__(self, title, background_color, window_size=(800,600), fps=60): # 800 is width of screen
+    def __init__(self, title, background_color, window_size=(800,600), fps= 120): # 800 is width of screen
         self.title = title
         self.window_size = window_size
         self.fps = fps

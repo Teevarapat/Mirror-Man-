@@ -11,7 +11,7 @@ class MirrorMan(gamelib.SimpleGame):
 	def __init__(self):
 		super(MirrorMan, self).__init__('Mirror Man', MirrorMan.PURPLE)
 		self.player = Player((380, 10))
-		self.car = Car((0, 100))
+		self.car = Car((0, 125))
 
 	def init(self):
 		super(MirrorMan, self).init()
@@ -29,6 +29,8 @@ class MirrorMan(gamelib.SimpleGame):
 			self.player.move_right()
 
 	def render(self, surface):
+		self.background = pygame.image.load("background.png")
+		surface.blit(self.background, (0, 0))
 		self.player.render(surface)
 		self.car.render(surface)
 

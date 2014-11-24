@@ -6,7 +6,7 @@ height = 50
 
 class Car(object):
 
-	def __init__(self, pos, speed = 1):
+	def __init__(self, pos, speed = 3):
 		(self.posx, self.posy) = pos
 		self.vx = speed
 
@@ -15,7 +15,6 @@ class Car(object):
 		surface.blit(self.car, (self.posx, self.posy))
 
 	def move(self):
-		while True:
-			self.posx += self.vx
-			if(self.posx > 800):
-				self.posx = 0 - width
+		self.posx += self.vx
+		if(self.posx > 800):
+			self.posx = 0 - width
