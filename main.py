@@ -11,7 +11,7 @@ class MirrorMan(gamelib.SimpleGame):
 	def __init__(self):
 		super(MirrorMan, self).__init__('Mirror Man', MirrorMan.PURPLE)
 		self.player = Player((380, 10))
-		self.car = Car((0, 125))
+		self.car = Car((0, 125),(800, 225))
 
 	def init(self):
 		super(MirrorMan, self).init()
