@@ -6,6 +6,9 @@ height = 43
 
 class Player(object):
 	
+	self.posx = 0
+	self.posy = 0
+
 	def __init__(self, pos):
 		(self.posx , self.posy) = pos
 

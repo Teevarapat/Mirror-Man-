@@ -4,6 +4,7 @@ from pygame.locals import *
 import gamelib
 from player import Player
 from car import Car
+from checkcollision import CheckCollision
 
 class MirrorMan(gamelib.SimpleGame):
 	PURPLE = pygame.Color('purple')
@@ -27,6 +28,8 @@ class MirrorMan(gamelib.SimpleGame):
 			self.player.move_left()
 		elif self.is_key_pressed(K_RIGHT):
 			self.player.move_right()
+
+		#if self.checkcollision.iamhit()
 
 	def render(self, surface):
 		self.background = pygame.image.load("background.png")
