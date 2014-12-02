@@ -7,7 +7,7 @@ height = 50
 
 class Car(object):
 
-	def __init__(self, px, py, typecar, speed = 8):
+	def __init__(self, px, py, typecar, speed = 10):
 		
 		self.px = px
 		self.py = py

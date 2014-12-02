@@ -52,6 +52,11 @@ class MirrorMan(gamelib.SimpleGame):
 		self.car3.render(surface)
 		self.car4.render(surface)
 
+		if self.gameover:
+			self.bye = pygame.image.load("gameover.jpg")
+			surface.blit(self.bye, (150, 150))
+
+
 def main():
 	game = MirrorMan()
 	game.run()
