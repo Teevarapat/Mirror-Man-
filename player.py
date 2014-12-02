@@ -5,9 +5,6 @@ width = 21
 height = 43
 
 class Player(object):
-	
-	self.posx = 0
-	self.posy = 0
 
 	def __init__(self, pos):
 		(self.posx , self.posy) = pos
@@ -35,4 +32,9 @@ class Player(object):
 	 	self.posx += 5
 	 	if self.posx > 800 - width:
 	 		self.posx = 800 - width
-		
+
+	def getX(self):
+		return self.posx
+
+	def getY(self):
+		return self.posy
