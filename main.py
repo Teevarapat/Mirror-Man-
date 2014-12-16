@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 
 import gamelib
+import random
 from player import Player
 from car import Car
 from checkcollision import CheckCollision
@@ -12,7 +13,8 @@ class MirrorMan(gamelib.SimpleGame):
 	def __init__(self):
 		super(MirrorMan, self).__init__('Mirror Man', MirrorMan.PURPLE)
 		self.gameover = False
-		self.player = Player((380, 10))
+		self.win = False
+		self.player = Player((random.randint(50,750), 10))
 		self.car = Car(0, 125, 'yellow')
 		self.car2 = Car(800, 225, 'red')
 		self.car3 = Car(-100, 325, 'yellow')
@@ -24,20 +26,20 @@ class MirrorMan(gamelib.SimpleGame):
 
 	def update(self):
 		collision = CheckCollision()
-		if not self.gameover:
+		if not self.gameover and not self.win:
 			self.car.move()
 			self.car2.move()
 			self.car3.move()
 			self.car4.move()
 
 			if self.is_key_pressed(K_UP):
-				self.player.move_up()
-			elif self.is_key_pressed(K_DOWN):
 				self.player.move_down()
+			elif self.is_key_pressed(K_DOWN):
+				self.player.move_up()
 			elif self.is_key_pressed(K_LEFT):
-				self.player.move_left()
-			elif self.is_key_pressed(K_RIGHT):
 				self.player.move_right()
+			elif self.is_key_pressed(K_RIGHT):
+				self.player.move_left()
 
 		if collision.iamhit(self.player, self.car, self.car2, self.car3, self.car4):
 			self.gameover = True
@@ -55,6 +57,10 @@ class MirrorMan(gamelib.SimpleGame):
 		if self.gameover:
 			self.bye = pygame.image.load("gameover.jpg")
 			surface.blit(self.bye, (150, 150))
+
+		if self.player.getY() >= 550:
+			self.win = pygame.image.load("youwin.png")
+			surface.blit(self.win, (150, 150)) 
 
 
 def main():

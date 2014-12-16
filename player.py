@@ -14,22 +14,22 @@ class Player(object):
 		surface.blit(self.man,(self.posx, self.posy))
 
 	def move_up(self):
-		self.posy -= 5
+		self.posy -= 3
 		if self.posy < 0:
 			self.posy = 0
 
 	def move_down(self):
-		self.posy += 5
+		self.posy += 3
 		if self.posy > 600 - height:
 			self.posy = 600 - height
 
 	def move_left(self):
-		self.posx -= 5
+		self.posx -= 3
 		if self.posx < 0: 
 			self.posx = 0
 
 	def move_right(self):
-	 	self.posx += 5
+	 	self.posx += 3
 	 	if self.posx > 800 - width:
 	 		self.posx = 800 - width
 

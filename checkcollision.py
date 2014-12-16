@@ -26,10 +26,10 @@ class CheckCollision (object):
 
 		elif self.player.getX() > self.car2.getX() and self.player.getX() + width < self.car2.getX() + 100:
 			if self.player.getY() + height > self.car2.getY() and self.player.getY() < self.car2.getY() + 50:
-				print 'i am hit by car2'
+				#print 'i am hit by car2'
 				return True
 
 		elif self.player.getX() > self.car4.getX() and self.player.getX() + width < self.car4.getX() + 100:
 			if self.player.getY() + height > self.car4.getY() and self.player.posy < self.car4.getY() + 50:
-				print 'i am hit by car4'
+				#print 'i am hit by car4'
 				return True
